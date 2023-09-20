@@ -11,7 +11,7 @@ function preload(){
   powerupImg = loadAnimation("power.png", "energyDrink.png")
 }
 function bomber() {
-  if(frameCount / 60 === 0){
+  if(frameCount % 600 === 0){
     bomb = createSprite(Math.round(random(30, 370)), 0, 10, 10)
     bomb.scale = 0.08
     bomb.addAnimation("bombImg", bombImg)
@@ -20,7 +20,7 @@ function bomber() {
  }
 
  function puper() {
-  if(frameCount / 30 === 0){
+  if(frameCount % 300 === 0){
     pu = createSprite(Math.round(random(30, 370)), 0, 10, 10)
     pu.scale = 0.08
     pu.addAnimation("pwrupImg", powerupImg)
@@ -72,16 +72,8 @@ function draw() {
   boy.collide(rightBoundary);
   
   //code to reset the background
-  if(path.y < 400 ){
-    path.y = height*2;
-  }
-
- if(path.y > 400 ){
+if(path.y > 400 ){
     path.y = height/2;
-  }
-
- if(path.y > 400 ){
-    path.y = width/2;
   }
   
   drawSprites();
